@@ -33,8 +33,13 @@ const { sendTransaction } = require('./src/sendTransaction');
       await sendTransaction(wallet);
     }
     if (txCount > 1 && i < txCount - 1) {
-      console.log(`Sleeping for 30 seconds... (${i + 1}/${txCount})`.green);
-      await sleep(30000);
+      const sleepDuration =
+        Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000;
+      console.log(
+        `Sleeping for ${sleepDuration / 1000} seconds... (${i + 1}/${txCount})`
+          .green
+      );
+      await sleep(sleepDuration);
     }
   }
 
