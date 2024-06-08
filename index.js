@@ -1,6 +1,9 @@
 require('colors').config;
 const readlineSync = require('readline-sync');
-const { initWallets } = require('./src/initWallets');
+const {
+  initWalletsFromMnemonic,
+  initWalletsFromPrivateKey,
+} = require('./src/initWallets');
 const { sleep } = require('./src/sleep');
 const { sendTransaction } = require('./src/sendTransaction');
 
@@ -21,7 +24,23 @@ const { sendTransaction } = require('./src/sendTransaction');
   console.log('    https://t.me/HappyCuanAirdrop'.magenta);
   console.log();
 
-  const wallets = await initWallets();
+  const walletChoice = parseInt(
+    readlineSync.question(
+      'Choose wallet initialization method (0 for mnemonic, 1 for private key): '
+        .yellow
+    ),
+    10
+  );
+
+  let wallets;
+  if (walletChoice === 0) {
+    wallets = await initWalletsFromMnemonic();
+  } else if (walletChoice === 1) {
+    wallets = await initWalletsFromPrivateKey();
+  } else {
+    console.error('Invalid choice. Exiting...');
+    return;
+  }
 
   const txCount = parseInt(
     readlineSync.question('How many transactions do you want to send? '.yellow),

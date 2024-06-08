@@ -17,7 +17,10 @@ Nillion Airdrop Bot is a tool for sending Nillion ($NIL) tokens to multiple reci
    npm install
    ```
 
-3. Prepare `accounts.json` and `recipients.json` files. The `accounts.json` file should contain an array of mnemonics for your wallet accounts. The `recipients.json` file (optional) can contain an array of recipient addresses to send tokens to. If not provided, the bot will generate new addresses for each transaction.
+3. Prepare `accounts.json` and/or `privateKeys.json` and `recipients.json` files. 
+    - The `accounts.json` file should contain an array of mnemonics for your wallet accounts.
+    - The `privateKeys.json` file should contain an array of private keys for your wallet accounts.
+    - The `recipients.json` file (optional) can contain an array of recipient addresses to send tokens to. If not provided, the bot will generate new addresses for each transaction.
 
 4. Run the bot:
 
@@ -25,7 +28,10 @@ Nillion Airdrop Bot is a tool for sending Nillion ($NIL) tokens to multiple reci
    npm start
    ```
 
-5. Follow the prompts to specify the number of transactions and, optionally, the amount of $NIL to send in each transaction.
+5. Follow the prompts to:
+   - Choose the wallet initialization method (0 for mnemonic, 1 for private key).
+   - Specify the number of transactions.
+   - The bot will dynamically sleep between 30 to 60 seconds between transactions if more than one transaction is specified.
 
 ## Configuration
 
@@ -35,9 +41,21 @@ Example:
 
 ```json
 [
-  "mnemonic1 abc def ghe ijk",
-  "mnemonic2 lmn opq rst uvw",
-  "mnemonic3 xyz abc def ghi"
+  "abc def ghi jkl mno pqr stu vwx yz",
+  "abc def ghi jkl mno pqr stu vwx yz",
+  "abc def ghi jkl mno pqr stu vwx yz"
+]
+```
+
+### privateKeys.json
+
+Example:
+
+```json
+[
+  "yourfirstprivatekeyinhexformat",
+  "yoursecondprivatekeyinhexformat",
+  "yourthirdprivatekeyinhexformat"
 ]
 ```
 
@@ -52,3 +70,10 @@ Example:
   "address3"
 ]
 ```
+
+## Key Features
+
+- Multi-account support: Manage multiple accounts effortlessly.
+- Flexible transaction volume: Specify the desired number of transactions to execute.
+- Customizable recipient options: Tailor transactions to specific recipients as needed.
+- Dynamic sleep duration: The bot will dynamically sleep between 30 to 60 seconds between transactions if more than one transaction is specified.
