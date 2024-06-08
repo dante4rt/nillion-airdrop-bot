@@ -1,0 +1,18 @@
+{
+  "name": "nillion-airdrop-bot",
+  "version": "1.0.0",
+  "description": "A bot for automating airdrops on the Nillion testnet.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@cosmjs/proto-signing": "^0.24.1",
+    "@cosmjs/stargate": "^0.24.1",
+    "bip39": "^3.0.4",
+    "colors": "^1.4.0",
+    "readline-sync": "^1.4.10"
+  },
+  "author": "",
+  "license": "MIT"
+}
