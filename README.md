@@ -1,0 +1,1 @@
+# nillion-airdrop-bot
