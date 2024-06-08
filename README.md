@@ -35,9 +35,9 @@ Example:
 
 ```json
 [
-  "mnemonic1",
-  "mnemonic2",
-  "mnemonic3"
+  "mnemonic1 abc def ghe ijk",
+  "mnemonic2 lmn opq rst uvw",
+  "mnemonic3 xyz abc def ghi"
 ]
 ```
 
