@@ -2,5 +2,5 @@ node_modules
 
 package-lock.json
 accounts.json
-recipients.json
+// recipients.json
 privateKeys.json
